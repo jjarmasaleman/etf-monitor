@@ -1,3 +1,6 @@
+[![Backend CI](https://github.com/jjarmasaleman/etf-monitor/actions/workflows/backend.yml/badge.svg?branch=master&event=push)](https://github.com/jjarmasaleman/etf-monitor/actions/workflows/backend.yml)
+[![Frontend CI](https://github.com/jjarmasaleman/etf-monitor/actions/workflows/frontend.yml/badge.svg?branch=master&event=push)](https://github.com/jjarmasaleman/etf-monitor/actions/workflows/frontend.yml)
+
 # ETF Monitor
 
 A personal ETF portfolio tracker with a Spring Boot backend and an Angular frontend.
