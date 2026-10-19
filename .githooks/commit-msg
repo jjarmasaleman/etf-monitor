@@ -1,0 +1,25 @@
+#!/bin/sh
+# Rejects commit messages that are not Conventional Commits.
+# Format: type(scope): description, imperative, whole first line at most 72 characters.
+# Enable in each clone with: git config core.hooksPath .githooks
+
+subject=$(head -n 1 "$1")
+
+# Let Git-generated messages through
+case "$subject" in
+  "Merge "*|"Revert "*|"fixup! "*|"squash! "*) exit 0 ;;
+esac
+
+pattern='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9-]+\))?!?: .+$'
+
+if ! printf '%s\n' "$subject" | grep -Eq "$pattern" || [ "${#subject}" -gt 72 ]; then
+  echo "Commit rejected: not a Conventional Commit, or the first line is longer than 72 characters." >&2
+  echo "" >&2
+  echo "  Expected: type(scope): description" >&2
+  echo "  Types:    feat fix docs style refactor perf test build ci chore revert" >&2
+  echo "  Example:  feat(backend): add EtfPrice entity" >&2
+  echo "  Breaking: add ! after the type or scope" >&2
+  echo "" >&2
+  echo "  Got:      $subject (${#subject} characters)" >&2
+  exit 1
+fi
