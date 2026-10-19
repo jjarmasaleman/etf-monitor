@@ -1,5 +1,9 @@
+<img src="frontend/public/brand/brand.svg" alt="ETF Monitor" width="300">
+
 [![Backend CI](https://github.com/jjarmasaleman/etf-monitor/actions/workflows/backend.yml/badge.svg?branch=master&event=push)](https://github.com/jjarmasaleman/etf-monitor/actions/workflows/backend.yml)
 [![Frontend CI](https://github.com/jjarmasaleman/etf-monitor/actions/workflows/frontend.yml/badge.svg?branch=master&event=push)](https://github.com/jjarmasaleman/etf-monitor/actions/workflows/frontend.yml)
+
+<br>
 
 # ETF Monitor
 
