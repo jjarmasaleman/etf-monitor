@@ -1,0 +1,18 @@
+# IDE (generic)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Claude Code (local settings only)
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.template
+*.pem

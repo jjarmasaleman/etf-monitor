@@ -1,0 +1,47 @@
+name: Frontend CI
+
+on:
+  push:
+    branches: [master, develop]
+    paths:
+      - "frontend/**"
+      - ".github/workflows/frontend.yml"
+  # No paths filter on pull_request: a required check that is skipped by a path
+  # filter never reports, and the PR could not be merged.
+  pull_request:
+    branches: [master, develop]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: frontend-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Frontend build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test
+        env:
+          CI: "true" # no watch mode in CI; if the first run hangs, put the non-watch flag into the test script
