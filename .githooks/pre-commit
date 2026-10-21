@@ -1,0 +1,5 @@
+#!/bin/sh
+# Rejects commits whose staged changes contain a value from a local .env file.
+# Enable in each clone with: git config core.hooksPath .githooks
+
+exec "$(dirname "$0")/check-env-secrets" staged

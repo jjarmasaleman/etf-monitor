@@ -42,7 +42,7 @@ etf-monitor/
 ├── frontend/    Angular application
 │   └── src/
 ├── .github/     CI workflows (backend, frontend, conventions)
-└── .githooks/   Git hooks (commit-msg)
+└── .githooks/   Git hooks (commit-msg, pre-commit: Conventional Commits and .env secret checks)
 ```
 
 ## Getting started
