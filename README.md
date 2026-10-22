@@ -42,10 +42,18 @@ etf-monitor/
 ├── frontend/    Angular application
 │   └── src/
 ├── .github/     CI workflows (backend, frontend, conventions)
-└── .githooks/   Git hooks (commit-msg, pre-commit: Conventional Commits and .env secret checks)
+├── .githooks/   Git hooks: Conventional Commits check (commit-msg), .env secret check (pre-commit, commit-msg)
+├── .claude/     Shared Claude Code settings, hooks and skills
+└── CLAUDE.md    Instructions for Claude Code (plus one in backend/ and frontend/)
 ```
 
 ## Getting started
+
+After cloning, enable the git hooks once:
+
+```
+git config core.hooksPath .githooks
+```
 
 ### Backend
 
