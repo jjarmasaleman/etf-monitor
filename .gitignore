@@ -9,6 +9,9 @@
 CLAUDE.local.md
 .mcp.json
 
+# Local-only files (e.g. skill state)
+private/
+
 # OS
 .DS_Store
 Thumbs.db
