@@ -10,7 +10,7 @@ Setup and run instructions for humans are in README.md. Area-specific rules live
 - `frontend/`: Angular 22 app, port 4200, proxies `/api` to the backend
 - `.github/workflows/`: `backend.yml`, `frontend.yml`, `conventions.yml`
 - `.githooks/`: `commit-msg` (Conventional Commits check) and `pre-commit`; both reject commits containing a value from a local `.env` file (`check-env-secrets`)
-- `.claude/`: shared Claude Code settings and hooks
+- `.claude/`: shared Claude Code settings, hooks and skills (`/update-docs` checks the docs against the committed and staged state; run it manually)
 
 ## Status
 
