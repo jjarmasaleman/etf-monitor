@@ -1,0 +1,48 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./mvnw test*)",
+      "Bash(./mvnw -B verify*)",
+      "Bash(./mvnw verify*)",
+      "Bash(./mvnw.cmd test*)",
+      "Bash(./mvnw.cmd -B verify*)",
+      "Bash(./mvnw.cmd verify*)",
+      "Bash(npm test*)",
+      "Bash(npm run build*)",
+      "Bash(npx prettier --check*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "PowerShell(.\\mvnw.cmd test*)",
+      "PowerShell(.\\mvnw.cmd -B verify*)",
+      "PowerShell(.\\mvnw.cmd verify*)",
+      "PowerShell(npm test*)",
+      "PowerShell(npm run build*)",
+      "PowerShell(npx prettier --check*)",
+      "PowerShell(git status*)",
+      "PowerShell(git diff*)",
+      "PowerShell(git log*)"
+    ],
+    "deny": [
+      "Read(./**/.env)",
+      "Read(./**/.env.local)",
+      "Read(./**/.env.*.local)",
+      "Read(./**/*.pem)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/format-frontend.mjs\"",
+            "timeout": 30,
+            "statusMessage": "Formatting with Prettier"
+          }
+        ]
+      }
+    ]
+  }
+}
